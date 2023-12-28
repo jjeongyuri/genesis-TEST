@@ -4,6 +4,28 @@ $(function(){
     CarShow();
     Cgallery();
 
+    
+    // 모바일 네비게이션
+    let navWidth = $("header>div>nav").innerWidth();
+    $(".btnNav").on("click",function(){
+        $("nav").animate({left:0},500);
+    })
+    $(".close").on("click",function(){
+        $("nav").css('left','-'+navWidth+"px")
+    });
+
+    // 돋보기
+    let searchWide = $("#box input").innerWidth();
+    let a = $(".search")
+    // console.log(searchWide);
+    $("#glass").on("click",function(){
+        if(a.css("display") === "none"){
+            a.show(searchWide)
+        } else{
+            a.hide(searchWide)
+        }
+    })
+
     // toggle
     function Toggle(){
         $("#iconedown").on("click",function(){
@@ -18,6 +40,32 @@ $(function(){
         })
     };
     //
+
+    // toggle 메뉴 클릭시 이미지 분류
+    let aaa = $("#allpic");
+    let bbb = $(".all>#SEDAN");
+    let ccc = $(".all>#SUV");
+    // console.log(aaa,bbb,ccc)
+
+    let allpic = $(".all").outerWidth(true);
+    let sedanpic = $(".all>li").outerWidth(true);
+    let sedangup = sedanpic * 6;
+    let suvgup = sedanpic * 4;
+    // console.log(allpic,sedanpic,sedangup,suvgup)
+    
+    $(".toggle>ul>li>a").on("click",function(){
+        if(this === aaa){
+            $(".all").show(allpic);
+        } if (this === bbb){
+            $(".all").show(sedangup).hide(suvgup);
+        } if(this === ccc){
+            $(".all").show(suvgup).hide(sedangup);
+        }
+    })
+
+
+
+
     
     // box03 자동차 갤러리 움직이기
     function CarShow(){
