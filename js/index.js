@@ -57,6 +57,7 @@ $(function(){
     // console.log(allpic,sedanpic,sedangup,suvgup)
     
     $(".toggle>ul>li>a").on("click",function(){
+        // error or fix here
         // console.log(1)
         let move = $(this).attr("href");
         console.log(move)
