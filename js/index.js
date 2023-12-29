@@ -43,8 +43,11 @@ $(function(){
 
     // toggle 메뉴 클릭시 이미지 분류
     let aaa = $("#allpic");
+    console.log(aaa);
     let bbb = $(".all>#SEDAN");
+    console.log(bbb)
     let ccc = $(".all>#SUV");
+    console.log(ccc)
     // console.log(aaa,bbb,ccc)
 
     let allpic = $(".all").outerWidth(true);
@@ -54,7 +57,15 @@ $(function(){
     // console.log(allpic,sedanpic,sedangup,suvgup)
     
     $(".toggle>ul>li>a").on("click",function(){
-        if(this === aaa){
+        // console.log(1)
+        let move = $(this).attr("href");
+        console.log(move)
+        // console.log('this:');
+        // console.log(this)
+        console.log('aaa:');
+        console.log(aaa)
+        if(move === aaa){   
+            
             $(".all").show(allpic);
         } if (this === bbb){
             $(".all").show(sedangup).hide(suvgup);
